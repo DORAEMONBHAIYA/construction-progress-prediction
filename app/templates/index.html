@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Construction Progress Predictor</title>
+  </head>
+  <body>
+    <h1>Construction Progress Predictor</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <label for="floors">Number of Floors:</label>
+      <input type="number" name="floors" id="floors" required /><br /><br />
+
+      <label for="laborers">Number of Laborers:</label>
+      <input type="number" name="laborers" id="laborers" required /><br /><br />
+
+      <label for="image">Upload Construction Site Image:</label>
+      <input type="file" name="image" id="image" required /><br /><br />
+
+      <input type="submit" value="Predict" />
+    </form>
+
+    {% if progress and time_remaining %}
+    <h2>Results</h2>
+    <p>Predicted Progress: {{ progress * 100 }}%</p>
+    <p>Estimated Time Remaining: {{ time_remaining }} days</p>
+    {% endif %}
+  </body>
+</html>
